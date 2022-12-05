@@ -1,0 +1,44 @@
+server:
+  port: 8090
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:9000/auth/realms/security
+        registration:
+          quotes-client:
+            provider: keycloak
+            client-id: gateway
+            client-secret: ePEArOxZNZN0AvFig8BN0wSHHCs7eBen
+            scope:
+              - email
+              - profile
+              - roles
+  main:
+    allow-bean-definition-overriding: true
+    web-application-type: reactive
+  cloud:
+    gateway:
+      redis:
+        enabled: false
+      routes:
+        - id: microservice1
+          uri: http://localhost:8081
+          predicates:
+            - Path=/microservice1
+          filters:
+            - TokenRelay=
+        - id: microservice2
+          uri: http://localhost:8082
+          predicates:
+            - Path=/microservice2
+          filters:
+            - TokenRelay=
+        - id: microservice3
+          uri: http://localhost:8083
+          predicates:
+            - Path=/microservice3
+          filters:
+            - TokenRelay=

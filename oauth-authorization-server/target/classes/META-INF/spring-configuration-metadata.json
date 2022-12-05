@@ -1,0 +1,42 @@
+{
+  "groups": [
+    {
+      "name": "keycloak.server",
+      "type": "com.security.auth.config.KeycloakServerProperties",
+      "sourceType": "com.security.auth.config.KeycloakServerProperties"
+    },
+    {
+      "name": "keycloak.server.admin-user",
+      "type": "com.security.auth.config.KeycloakServerProperties$AdminUser",
+      "sourceType": "com.security.auth.config.KeycloakServerProperties",
+      "sourceMethod": "getAdminUser()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "keycloak.server.admin-user.password",
+      "type": "java.lang.String",
+      "sourceType": "com.security.auth.config.KeycloakServerProperties$AdminUser",
+      "defaultValue": "admin"
+    },
+    {
+      "name": "keycloak.server.admin-user.username",
+      "type": "java.lang.String",
+      "sourceType": "com.security.auth.config.KeycloakServerProperties$AdminUser",
+      "defaultValue": "admin"
+    },
+    {
+      "name": "keycloak.server.context-path",
+      "type": "java.lang.String",
+      "sourceType": "com.security.auth.config.KeycloakServerProperties",
+      "defaultValue": "\/auth"
+    },
+    {
+      "name": "keycloak.server.realm-import-file",
+      "type": "java.lang.String",
+      "sourceType": "com.security.auth.config.KeycloakServerProperties",
+      "defaultValue": "realm-export.json"
+    }
+  ],
+  "hints": []
+}
