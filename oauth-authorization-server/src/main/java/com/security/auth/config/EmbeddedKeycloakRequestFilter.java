@@ -14,9 +14,13 @@ import org.keycloak.services.filters.AbstractRequestFilter;
 public class EmbeddedKeycloakRequestFilter extends AbstractRequestFilter implements Filter {
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws UnsupportedEncodingException {
+    public void doFilter(
+            final ServletRequest servletRequest,
+            final ServletResponse servletResponse,
+            final FilterChain filterChain
+    ) throws UnsupportedEncodingException {
         servletRequest.setCharacterEncoding("UTF-8");
-        ClientConnection clientConnection = createConnection((HttpServletRequest) servletRequest);
+        final ClientConnection clientConnection = createConnection((HttpServletRequest) servletRequest);
 
         filter(clientConnection, (session) -> {
             try {
@@ -27,7 +31,9 @@ public class EmbeddedKeycloakRequestFilter extends AbstractRequestFilter impleme
         });
     }
 
-    private ClientConnection createConnection(HttpServletRequest request) {
+    private ClientConnection createConnection(
+            final HttpServletRequest request
+    ) {
         return new ClientConnection() {
             @Override
             public String getRemoteAddr() {

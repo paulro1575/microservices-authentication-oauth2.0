@@ -1,7 +1,8 @@
-/home/paul/Documents/PAUL/UOC/TFM/PEC3/microservices-authentication-oauth2.0/oauth-authorization-server/src/main/java/com/security/auth/config/KeycloakServerProperties.java
 /home/paul/Documents/PAUL/UOC/TFM/PEC3/microservices-authentication-oauth2.0/oauth-authorization-server/src/main/java/com/security/auth/config/EmbeddedKeycloakApplication.java
 /home/paul/Documents/PAUL/UOC/TFM/PEC3/microservices-authentication-oauth2.0/oauth-authorization-server/src/main/java/com/security/auth/AuthorizationServerApp.java
 /home/paul/Documents/PAUL/UOC/TFM/PEC3/microservices-authentication-oauth2.0/oauth-authorization-server/src/main/java/com/security/auth/config/SimplePlatformProvider.java
+/home/paul/Documents/PAUL/UOC/TFM/PEC3/microservices-authentication-oauth2.0/oauth-authorization-server/src/main/java/com/security/auth/config/properties/AdminUser.java
+/home/paul/Documents/PAUL/UOC/TFM/PEC3/microservices-authentication-oauth2.0/oauth-authorization-server/src/main/java/com/security/auth/config/properties/KeycloakServerProperties.java
 /home/paul/Documents/PAUL/UOC/TFM/PEC3/microservices-authentication-oauth2.0/oauth-authorization-server/src/main/java/com/security/auth/config/EmbeddedKeycloakConfig.java
 /home/paul/Documents/PAUL/UOC/TFM/PEC3/microservices-authentication-oauth2.0/oauth-authorization-server/src/main/java/com/security/auth/config/EmbeddedKeycloakRequestFilter.java
 /home/paul/Documents/PAUL/UOC/TFM/PEC3/microservices-authentication-oauth2.0/oauth-authorization-server/src/main/java/com/security/auth/config/Resteasy3Provider.java

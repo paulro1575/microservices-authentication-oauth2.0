@@ -10,8 +10,12 @@ spring:
 
 keycloak:
   server:
+    customRealm: security
     contextPath: /auth
     adminUser:
+      username: admin
+      password: password
+    customUser:
       username: security-admin
       password: password
     realmImportFile: realm-export.json

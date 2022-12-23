@@ -11,6 +11,7 @@ import javax.naming.NamingException;
 import javax.naming.spi.NamingManager;
 import javax.sql.DataSource;
 
+import com.security.auth.config.properties.KeycloakServerProperties;
 import org.jboss.resteasy.plugins.server.servlet.HttpServlet30Dispatcher;
 import org.jboss.resteasy.plugins.server.servlet.ResteasyContextParameters;
 import org.keycloak.platform.Platform;
@@ -25,13 +26,16 @@ public class EmbeddedKeycloakConfig {
 
 	@Bean
 	ServletRegistrationBean<HttpServlet30Dispatcher> keycloakJaxRsApplication(
-			KeycloakServerProperties keycloakServerProperties, DataSource dataSource) throws Exception {
+			final KeycloakServerProperties keycloakServerProperties,
+			final DataSource dataSource
+	) throws Exception {
 
 		mockJndiEnvironment(dataSource);
 		EmbeddedKeycloakApplication.keycloakServerProperties = keycloakServerProperties;
 
-		ServletRegistrationBean<HttpServlet30Dispatcher> servlet = new ServletRegistrationBean<>(
+		final ServletRegistrationBean<HttpServlet30Dispatcher> servlet = new ServletRegistrationBean<>(
 				new HttpServlet30Dispatcher());
+
 		servlet.addInitParameter("javax.ws.rs.Application", EmbeddedKeycloakApplication.class.getName());
 		servlet.addInitParameter(ResteasyContextParameters.RESTEASY_SERVLET_MAPPING_PREFIX,
 				keycloakServerProperties.getContextPath());
@@ -44,17 +48,22 @@ public class EmbeddedKeycloakConfig {
 	}
 
 	@Bean
-	FilterRegistrationBean<EmbeddedKeycloakRequestFilter> keycloakSessionManagement(KeycloakServerProperties keycloakServerProperties) {
+	FilterRegistrationBean<EmbeddedKeycloakRequestFilter> keycloakSessionManagement(
+			final KeycloakServerProperties keycloakServerProperties
+	) {
 
-	    FilterRegistrationBean<EmbeddedKeycloakRequestFilter> filter = new FilterRegistrationBean<>();
-	    filter.setName("Keycloak Session Management");
+	    final FilterRegistrationBean<EmbeddedKeycloakRequestFilter> filter = new FilterRegistrationBean<>();
+
+		filter.setName("Keycloak Session Management");
 	    filter.setFilter(new EmbeddedKeycloakRequestFilter());
 	    filter.addUrlPatterns(keycloakServerProperties.getContextPath() + "/*");
 
 	    return filter;
 	}
 
-	private void mockJndiEnvironment(DataSource dataSource) throws NamingException {
+	private void mockJndiEnvironment(
+			final DataSource dataSource
+	) throws NamingException {
 		NamingManager.setInitialContextFactoryBuilder((env) -> (environment) -> new InitialContext() {
 
 			@Override

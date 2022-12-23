@@ -23,9 +23,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-//	implementation("org.springframework.cloud:spring-cloud-starter-netflix-zuul:2.2.10.RELEASE")
 	implementation("org.springframework.cloud:spring-cloud-starter-gateway")
-//	implementation("org.springframework.cloud:spring-cloud-starter-oauth2")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf") {
 		exclude(group= "org.springframework.boot")
 	}

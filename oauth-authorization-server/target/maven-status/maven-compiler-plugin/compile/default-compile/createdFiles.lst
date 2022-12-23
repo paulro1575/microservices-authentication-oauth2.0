@@ -3,11 +3,11 @@ com/security/auth/config/RegularJsonConfigProviderFactory.class
 META-INF/spring-configuration-metadata.json
 com/security/auth/config/EmbeddedKeycloakConfig$1.class
 com/security/auth/config/EmbeddedKeycloakRequestFilter$1.class
+com/security/auth/config/properties/AdminUser.class
 com/security/auth/config/EmbeddedKeycloakRequestFilter.class
 com/security/auth/config/SimplePlatformProvider$1.class
-com/security/auth/config/KeycloakServerProperties.class
 com/security/auth/config/SimplePlatformProvider.class
 com/security/auth/config/EmbeddedKeycloakApplication.class
-com/security/auth/config/KeycloakServerProperties$AdminUser.class
+com/security/auth/config/properties/KeycloakServerProperties.class
 com/security/auth/AuthorizationServerApp.class
 com/security/auth/config/Resteasy3Provider.class

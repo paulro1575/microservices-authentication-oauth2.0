@@ -8,7 +8,7 @@ import org.springframework.security.oauth2.server.resource.authentication.Bearer
 import org.springframework.stereotype.Service
 
 @Service
-class ProtectedResourceService: IProtectedResourceServer {
+class ProtectedResourceService: IProtectedResourceService {
 
     @Value("\${microservice.name}")
     private val microserviceName: String? = null
@@ -16,8 +16,10 @@ class ProtectedResourceService: IProtectedResourceServer {
     override fun getProtectedResource(auth: BearerTokenAuthentication): ProtectedResource {
         val name = microserviceName ?: "Default Microservice"
         println("MICROSERVICE NAME: $name, TOKEN: ${auth.token}")
+
         val isAdmin = auth.authorities.any{it == ADMIN_ROLE}
         val isCustomer = auth.authorities.any{it == CUSTOMER_ROLE}
+
         return if (isAdmin) {
             ProtectedResource(name, "Role: $ADMIN_ROLE")
         } else if (isCustomer) {

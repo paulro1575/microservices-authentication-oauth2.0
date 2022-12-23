@@ -8,7 +8,7 @@ spring:
           keycloak:
             issuer-uri: http://localhost:9000/auth/realms/security
         registration:
-          quotes-client:
+          gateway:
             provider: keycloak
             client-id: gateway
             client-secret: ePEArOxZNZN0AvFig8BN0wSHHCs7eBen

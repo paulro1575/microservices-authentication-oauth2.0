@@ -14,7 +14,6 @@ open class KeycloakReactiveTokenInstrospector (
 ): ReactiveOpaqueTokenIntrospector {
 
     override fun introspect(token: String): Mono<OAuth2AuthenticatedPrincipal> {
-        println(token)
         return delegate.introspect(token).map(this::mapPrincipal)
     }
 
