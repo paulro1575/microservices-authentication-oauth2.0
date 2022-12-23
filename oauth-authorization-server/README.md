@@ -1,6 +1,6 @@
 ### Relevant Articles:
 
-# API Gateway microservice
+# OAuth Authorization Server
 This project is created in order to create a secure microservice authentication infrastructure. To achieve this, we used the OAuth2.0.
 
 ### Author 
