@@ -1,4 +1,4 @@
-package com.security.micro1.config
+package com.security.micro3.config
 
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
@@ -14,7 +14,6 @@ open class KeycloakReactiveTokenInstrospector (
 ): ReactiveOpaqueTokenIntrospector {
 
     override fun introspect(token: String): Mono<OAuth2AuthenticatedPrincipal> {
-        println(token)
         return delegate.introspect(token).map(this::mapPrincipal)
     }
 
@@ -41,5 +40,4 @@ open class KeycloakReactiveTokenInstrospector (
         allAuthorities.addAll(rolesAuthorities)
         return allAuthorities
     }
-
 }

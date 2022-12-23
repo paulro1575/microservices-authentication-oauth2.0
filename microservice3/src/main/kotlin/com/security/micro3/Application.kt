@@ -1,6 +1,6 @@
-package com.security.micro1
+package com.security.micro3
 
-import com.security.micro1.config.KeycloakReactiveTokenInstrospector
+import com.security.micro3.config.KeycloakReactiveTokenInstrospector
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties
 import org.springframework.boot.runApplication

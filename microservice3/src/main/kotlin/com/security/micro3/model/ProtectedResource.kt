@@ -1,4 +1,4 @@
-package com.security.micro1.model
+package com.security.micro3.model
 
 data class ProtectedResource(
     var value: String?,

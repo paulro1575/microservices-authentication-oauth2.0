@@ -1,14 +1,14 @@
-package com.security.micro1.service
+package com.security.micro3.service
 
-import com.security.micro1.model.ProtectedResource
-import com.security.micro1.utils.ADMIN_ROLE
-import com.security.micro1.utils.CUSTOMER_ROLE
+import com.security.micro3.model.ProtectedResource
+import com.security.micro3.utils.ADMIN_ROLE
+import com.security.micro3.utils.CUSTOMER_ROLE
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.oauth2.server.resource.authentication.BearerTokenAuthentication
 import org.springframework.stereotype.Service
 
 @Service
-class ProtectedResourceService: IProtectedResourceServer {
+class ProtectedResourceService: IProtectedResourceService {
 
     @Value("\${microservice.name}")
     private val microserviceName: String? = null
