@@ -1,4 +1,4 @@
-package com.security.micro1
+package com.security.micro2
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
