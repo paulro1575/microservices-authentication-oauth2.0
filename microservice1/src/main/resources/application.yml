@@ -21,4 +21,8 @@ spring:
           client-secret: 5FlyzwdNmF68kQFfYzifqAeMmqXOnfoJ
 
 microservice:
-    name: Microservice 1
+  name: Microservice 1
+
+logging:
+  level:
+    root: INFO
