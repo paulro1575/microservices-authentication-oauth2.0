@@ -18,11 +18,11 @@ class ProtectedResourceService: IProtectedResourceService {
 
     override fun getProtectedResource(auth: BearerTokenAuthentication): ProtectedResource {
         val name = microserviceName ?: "Default Microservice"
-        logger.info("MICROSERVICE NAME: $name, TOKEN: ${auth.token}")
+        logger.info("MICROSERVICE NAME: $name, TOKEN-TYPE: ${auth.token.tokenType}")
+        logger.info("TOKEN-VALUE: ${auth.token.tokenValue}")
 
         val isAdmin = auth.authorities.any{it == ADMIN_ROLE}
         val isCustomer = auth.authorities.any{it == CUSTOMER_ROLE}
-
         return if (isAdmin) {
             ProtectedResource(name, "Role: $ADMIN_ROLE")
         } else if (isCustomer) {

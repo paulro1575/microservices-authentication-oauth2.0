@@ -42,3 +42,9 @@ spring:
             - Path=/microservice3
           filters:
             - TokenRelay=
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG

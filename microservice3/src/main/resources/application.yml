@@ -22,3 +22,7 @@ spring:
 
 microservice:
     name: Microservice 3
+
+logging:
+  level:
+    root: INFO

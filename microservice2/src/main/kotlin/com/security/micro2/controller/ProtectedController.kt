@@ -2,8 +2,7 @@ package com.security.micro2.controller
 
 import com.security.micro2.model.ProtectedResource
 import com.security.micro2.service.IProtectedResourceService
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+import org.apache.log4j.Logger
 import org.springframework.security.oauth2.server.resource.authentication.BearerTokenAuthentication
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
@@ -14,7 +13,7 @@ import reactor.core.publisher.Mono
 class ProtectedController(
     val protectedService: IProtectedResourceService
 ) {
-    val logger: Logger = LoggerFactory.getLogger(ProtectedController::class.java)
+    val logger: Logger = Logger.getLogger(ProtectedController::class.java)
 
     @GetMapping("/microservice2")
     fun getProtectedResourceValue2(

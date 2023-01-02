@@ -3,6 +3,7 @@ package com.security.micro3.service
 import com.security.micro3.model.ProtectedResource
 import com.security.micro3.utils.ADMIN_ROLE
 import com.security.micro3.utils.CUSTOMER_ROLE
+import org.apache.log4j.Logger
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.oauth2.server.resource.authentication.BearerTokenAuthentication
 import org.springframework.stereotype.Service
@@ -13,9 +14,13 @@ class ProtectedResourceService: IProtectedResourceService {
     @Value("\${microservice.name}")
     private val microserviceName: String? = null
 
+    private val logger: Logger = Logger.getLogger(ProtectedResourceService::class.java)
+
     override fun getProtectedResource(auth: BearerTokenAuthentication): ProtectedResource {
         val name = microserviceName ?: "Default Microservice"
-        println("MICROSERVICE NAME: $name, TOKEN: ${auth.token}")
+        logger.info("MICROSERVICE NAME: $name, TOKEN-TYPE: ${auth.token.tokenType}")
+        logger.info("TOKEN-VALUE: ${auth.token.tokenValue}")
+
         val isAdmin = auth.authorities.any{it == ADMIN_ROLE}
         val isCustomer = auth.authorities.any{it == CUSTOMER_ROLE}
         return if (isAdmin) {
